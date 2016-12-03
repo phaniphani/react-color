@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My First React Example</title>
+  </head>
+  <body>
+    <div id="greeting-div">
+	</div>
+
+    <script src="https://fb.me/react-15.0.0.js"></script>
+    <script src="https://fb.me/react-dom-15.0.0.js"></script>
+	<script src= "https://fb.me/react-devtools"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <script type="text/babel">
+
+var TextAreaCounter = React.createClass({
+propTypes: {
+text: React.PropTypes.string
+},
+getInitialState: function() {
+return {
+text: this.props.text,
+};
+},
+_textChange: function(ev) {
+this.setState({
+text: ev.target.value
+});
+},
+
+render: function() {
+return React.DOM.div(null,
+React.DOM.textarea({
+value: this.state.text,
+onChange: this._textChange
+}),
+React.DOM.h3(null, this.state.text.length)
+);
+}
+
+});
+ReactDOM.render(
+React.createElement(TextAreaCounter, {
+text: "Bobdsd"
+}),
+document.getElementById("greeting-div")
+);
+    </script>
+  </body>
+</html>
+    
